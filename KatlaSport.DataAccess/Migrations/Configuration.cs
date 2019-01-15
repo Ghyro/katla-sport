@@ -90,7 +90,10 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    Description = "Nice Kyak",
+                    ManufacturerCode = string.Empty,
+                    Price = 10
                 },
                 new CatalogueProduct
                 {
@@ -101,7 +104,10 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    Description = "Nice Top-top",
+                    ManufacturerCode = string.Empty,
+                    Price = 15
                 },
                 new CatalogueProduct
                 {
@@ -112,7 +118,10 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    Description = "Nice Abibas",
+                    ManufacturerCode = string.Empty,
+                    Price = 10
                 },
                 new CatalogueProduct
                 {
@@ -123,7 +132,10 @@ namespace KatlaSport.DataAccess.Migrations
                     IsDeleted = false,
                     CreatedBy = creatorId,
                     LastUpdatedBy = creatorId,
-                    LastUpdated = timestamp
+                    LastUpdated = timestamp,
+                    Description = "Nice Pedali",
+                    ManufacturerCode = string.Empty,
+                    Price = 20
                 });
 
             context.StoreHives.AddOrUpdate(
