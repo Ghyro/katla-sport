@@ -110,7 +110,7 @@ namespace KatlaSport.Services.ProductManagement
             }
 
             var dbCategory = dbCategories[0];
-            if (dbCategory.IsDeleted == false)
+            if (dbCategory.IsDeleted == true)
             {
                 throw new RequestedResourceHasConflictException();
             }
