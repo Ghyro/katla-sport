@@ -25,7 +25,6 @@ namespace KatlaSport.WebApi.Controllers
             _hiveSectionService = hiveSectionService ?? throw new ArgumentNullException(nameof(hiveSectionService));
         }
 
-
         [HttpGet]
         [Route("")]
         [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a list of hive sections.", Type = typeof(HiveSectionListItem[]))]
