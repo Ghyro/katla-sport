@@ -1,4 +1,8 @@
-﻿namespace KatlaSport.Services.HiveManagement
+﻿// <copyright file="HiveListItem.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace KatlaSport.Services.HiveManagement
 {
     /// <summary>
     /// Represents a hive.
