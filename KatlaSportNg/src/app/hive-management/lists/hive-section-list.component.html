@@ -17,6 +17,9 @@
                 <div class="btn-group mr-2" role="group" aria-label="Edit group">
                   <button routerLink="//hive/{{this.hiveId}}/section/{{hiveSection.id}}" type="button" class="btn btn-primary">Edit</button>
                 </div>
+                <div class="btn-group mr-2" role="group" aria-label="View group">
+                  <button routerLink="/hiveSection/{{this.hiveSection.id}}/products" type="button" class="btn btn-primary">View products</button>
+                </div>
                 <div class="btn-group mr-2" role="group" aria-label="Delete group" *ngIf="!hiveSection.isDeleted" (click)="onDelete(hiveSection.id)">
                   <button type="button" class="btn btn-danger">Delete</button>
                 </div>
