@@ -88,6 +88,10 @@
     <Compile Include="ProductManagement\UpdateProductRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductRequestValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoreManagement\IStoreItemService.cs" />
+    <Compile Include="StoreManagement\StoreItem.cs" />
+    <Compile Include="StoreManagement\UpdateStoreItemRequest.cs" />
+    <Compile Include="StoreManagement\UpdateStoreItemRequestValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -19,7 +19,7 @@ import { ProductCategoryProductListComponent } from 'app/product-management/list
 import { ProductListComponent } from 'app/product-management/lists/product-list.component';
 import { ProductCategoryService } from 'app/product-management/services/product-category.service';
 import { ProductService } from 'app/product-management/services/product.service';
-import { HiveSectionProductListComponent } from './hive-management/lists/hive-section-product-list.component';
+import { StoreItemListComponent } from './store-item-management/lists/store-item-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { HiveSectionProductListComponent } from './hive-management/lists/hive-se
     HiveFormComponent,
     HiveSectionFormComponent,
     HiveSectionListComponent,
-    HiveSectionProductListComponent,
+    StoreItemListComponent,
   ],
   imports: [
     // Angular imports
