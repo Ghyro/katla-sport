@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'app/app-routing.module';
@@ -20,6 +20,7 @@ import { ProductListComponent } from 'app/product-management/lists/product-list.
 import { ProductCategoryService } from 'app/product-management/services/product-category.service';
 import { ProductService } from 'app/product-management/services/product.service';
 import { StoreItemListComponent } from './store-item-management/lists/store-item-list.component';
+import { StoreItemFormComponent } from './store-item-management/forms/store-item-form.component';
 
 @NgModule({
   declarations: [
@@ -35,11 +36,13 @@ import { StoreItemListComponent } from './store-item-management/lists/store-item
     HiveSectionFormComponent,
     HiveSectionListComponent,
     StoreItemListComponent,
+    StoreItemFormComponent,
   ],
   imports: [
     // Angular imports
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
     HttpClientModule,
     // Application imports

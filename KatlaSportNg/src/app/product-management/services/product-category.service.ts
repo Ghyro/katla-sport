@@ -21,6 +21,11 @@ export class ProductCategoryService {
     return this.http.get<ProductCategory>(`${this.url}${productCategoryId}`);
   }
 
+  getAllowedHiveSectionProductCategories(hiveSectionId: number): Observable<Array<ProductCategory>>
+  {
+    return this.http.get<Array<ProductCategory>>(`${this.url}/sections/${hiveSectionId}`);
+  }
+
   addProductCategory(productCategory: ProductCategory): Observable<ProductCategory> {
     return this.http.post<ProductCategory>(this.url, productCategory);
   }

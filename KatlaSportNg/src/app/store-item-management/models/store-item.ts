@@ -1,10 +1,7 @@
 export class StoreItem {
     constructor(
-        public id: number,
         public productId: number,
-        public productName: string,
-        public productCode: string,
-        public productCategoryCode: string,
+        public hiveSectionId: number,
         public quantity: number
     ) { }
-} 
+}
