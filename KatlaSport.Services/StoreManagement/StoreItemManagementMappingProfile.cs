@@ -12,6 +12,8 @@ namespace KatlaSport.Services.StoreItemManagement
                 .ForMember(i => i.ProductName, opt => opt.MapFrom(i => i.Product.Name))
                 .ForMember(i => i.ProductCode, opt => opt.MapFrom(i => i.Product.Code))
                 .ForMember(i => i.ProductCategoryCode, opt => opt.MapFrom(i => i.Product.Category.Code));
+
+            CreateMap<UpdateStoreItemRequest, DataAccessStoreItem>();
         }
     }
 }

@@ -1,5 +1,8 @@
-﻿namespace KatlaSport.Services.StoreManagement
+﻿using FluentValidation.Attributes;
+
+namespace KatlaSport.Services.StoreManagement
 {
+    [Validator(typeof(UpdateStoreItemRequestValidator))]
     public class UpdateStoreItemRequest
     {
         /// <summary>

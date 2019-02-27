@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using KatlaSport.DataAccess;
 using KatlaSport.DataAccess.ProductCatalogue;
+using KatlaSport.DataAccess.ProductStoreHive;
 using DbProductCategory = KatlaSport.DataAccess.ProductCatalogue.ProductCategory;
 
 namespace KatlaSport.Services.ProductManagement
@@ -16,16 +17,19 @@ namespace KatlaSport.Services.ProductManagement
     {
         private readonly IProductCatalogueContext _context;
         private readonly IUserContext _userContext;
+        private readonly IProductStoreHiveContext _productStoreHiveContext;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductCategoryService"/> class with specified <see cref="IProductCatalogueContext"/>.
         /// </summary>
         /// <param name="context">A <see cref="IProductCatalogueContext"/>.</param>
         /// <param name="userContext">A <see cref="IUserContext"/>.</param>
-        public ProductCategoryService(IProductCatalogueContext context, IUserContext userContext)
+        /// <param name="productStoreHiveContext">A <see cref="IProductStoreHiveContext"/></param>
+        public ProductCategoryService(IProductCatalogueContext context, IUserContext userContext, IProductStoreHiveContext productStoreHiveContext)
         {
             _context = context ?? throw new ArgumentNullException();
             _userContext = userContext ?? throw new ArgumentNullException();
+            _productStoreHiveContext = productStoreHiveContext ?? throw new ArgumentNullException();
         }
 
         /// <inheritdoc/>
@@ -137,6 +141,19 @@ namespace KatlaSport.Services.ProductManagement
                 dbCategory.LastUpdatedBy = _userContext.UserId;
                 await _context.SaveChangesAsync();
             }
+        }
+
+        /// <inheritdoc/>
+        public async Task<List<ProductCategory>> GetAllowedHiveSectionProductCategoriesAsync(int hiveSectionId)
+        {
+            var dbAllowedCatgr = await _productStoreHiveContext.Categories.Where(c => c.StoreHiveSectionId == hiveSectionId).ToArrayAsync();
+
+            if (dbAllowedCatgr.Length == 0)
+            {
+                throw new RequestedResourceHasConflictException();
+            }
+
+            return dbAllowedCatgr.Select(c => Mapper.Map<ProductCategory>(c.Category)).ToList();
         }
     }
 }

@@ -48,6 +48,17 @@ namespace KatlaSport.WebApi.Controllers
         }
 
         [HttpGet]
+        [Route("sections/{hiveSectionId:int:min(1)}")]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a product category.", Type = typeof(ProductCategory))]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> GetAllowedHiveSectionProductCategories([FromUri] int hiveSectionId)
+        {
+            var categories = await _categoryService.GetAllowedHiveSectionProductCategoriesAsync(hiveSectionId);
+            return Ok(categories);
+        }
+
+        [HttpGet]
         [Route("{id:int:min(1)}")]
         [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a product category.", Type = typeof(ProductCategory))]
         [SwaggerResponse(HttpStatusCode.NotFound)]

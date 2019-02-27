@@ -14,7 +14,7 @@ namespace KatlaSport.Services.StoreManagement
         {
             RuleFor(r => r.ProductId).GreaterThan(0);
             RuleFor(r => r.HiveSectionId).GreaterThan(0);
-            RuleFor(r => r.Quantity).GreaterThan(0);
+            RuleFor(r => r.Quantity).GreaterThanOrEqualTo(0);
         }
     }
 }

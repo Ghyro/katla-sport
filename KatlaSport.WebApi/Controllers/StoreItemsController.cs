@@ -25,14 +25,43 @@ namespace KatlaSport.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("{hiveSectionId:int:min(1)}")]
+        [Route("sections/{hiveSectionId:int:min(1)}")]
         [SwaggerResponse(HttpStatusCode.OK, Description = "Returns store items.", Type = typeof(StoreItem))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> GetHiveSectionStoreItemsAsync(int hiveSectionId)
         {
-            var hive = await _storeItemService.GetStoreItemsAsync(hiveSectionId);
+            var hive = await _storeItemService.GetHiveSectionStoreItemsAsync(hiveSectionId);
             return Ok(hive);
+        }
+
+        [HttpGet]
+        [Route("{storeItemId:int:min(1)}")]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a store item.", Type = typeof(StoreItem))]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> GetHiveAsync(int id)
+        {
+            var storeItem = await _storeItemService.GetStoreItemAsync(id);
+            return Ok(storeItem);
+        }
+
+        [HttpPost]
+        [Route("")]
+        [SwaggerResponse(HttpStatusCode.Created, Description = "Creates a new store item into the hive section.")]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        [SwaggerResponse(HttpStatusCode.Conflict)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> AddStoreItemAsync([FromBody] UpdateStoreItemRequest createRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var item = await _storeItemService.CreateStoreItemAsync(createRequest);
+            var location = string.Format("/api/storeItem/{0}", item.Id);
+            return Created<StoreItem>(location, item);
         }
     }
 }
