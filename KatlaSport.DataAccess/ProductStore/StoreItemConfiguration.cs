@@ -14,6 +14,7 @@ namespace KatlaSport.DataAccess.ProductStore
             Property(i => i.Quantity).HasColumnName("product_store_item_quantity");
             Property(i => i.HiveSectionId).HasColumnName("product_store_item_hive_section_id");
             Property(i => i.ProductId).HasColumnName("product_store_item_product_id");
+            Property(i => i.IsConfirmed).HasColumnName("product_store_item_is_confirmed");
         }
     }
 }

@@ -8,9 +8,9 @@ namespace KatlaSport.Services.StoreManagement
         /// <summary>
         /// Gets a store item from the hive section.
         /// </summary>
-        /// <param name="id">Item id.</param>
+        /// <param name="storeItemId">A store item identifier.</param>
         /// <returns>A <see cref="Task{StoreItem}}"/></returns>
-        Task<StoreItem> GetStoreItemAsync(int id);
+        Task<StoreItem> GetStoreItemAsync(int storeItemId);
 
         /// <summary>
         /// Gets a list of a hive section store items.
@@ -25,5 +25,13 @@ namespace KatlaSport.Services.StoreManagement
         /// <param name="createRequest">A <see cref="UpdateStoreItemRequest"/></param>
         /// <returns>A <see cref="Task{StoreItem}"/></returns>
         Task<StoreItem> CreateStoreItemAsync(UpdateStoreItemRequest createRequest);
+
+        /// <summary>
+        /// Updates an existed hive section store item.
+        /// </summary>
+        /// <param name="storeItemId">A store item identifier.</param>
+        /// <param name="updateStoreItemRequest">A <see cref="UpdateStoreItemRequest"/>.</param>
+        /// <returns>A <see cref="Task{StoreItem}"/>.</returns>
+        Task<StoreItem> UpdateStoreItemAsync(int storeItemId, UpdateStoreItemRequest updateStoreItemRequest);
     }
 }

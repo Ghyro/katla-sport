@@ -31,5 +31,10 @@
         /// Gets or sets a quantity of items of certain product in the location.
         /// </summary>
         public int Quantity { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether a store item is confirmed.
+        /// </summary>
+        public bool IsConfirmed { get; set; }
     }
 }

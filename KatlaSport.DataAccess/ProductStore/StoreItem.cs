@@ -37,5 +37,10 @@ namespace KatlaSport.DataAccess.ProductStore
         /// Gets or sets a quantity of items of certain product in the location.
         /// </summary>
         public int Quantity { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether gets or sets a bool value to confirm a store item.
+        /// </summary>
+        public bool IsConfirmed { get; set; }
     }
 }

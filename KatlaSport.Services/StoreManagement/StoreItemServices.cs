@@ -72,9 +72,9 @@ namespace KatlaSport.Services.StoreManagement
         }
 
         /// <inheritdoc/>
-        public async Task<StoreItem> GetStoreItemAsync(int id)
+        public async Task<StoreItem> GetStoreItemAsync(int storeItemId)
         {
-            var dbStoreItems = await _context.Items.Where(i => i.Id == id).ToArrayAsync();
+            var dbStoreItems = await _context.Items.Where(i => i.Id == storeItemId).ToArrayAsync();
 
             if (dbStoreItems.Length == 0)
             {
@@ -82,6 +82,39 @@ namespace KatlaSport.Services.StoreManagement
             }
 
             return Mapper.Map<DbStoreItem, StoreItem>(dbStoreItems[0]);
+        }
+
+        /// <inheritdoc/>
+        public async Task<StoreItem> UpdateStoreItemAsync(int storeItemId, UpdateStoreItemRequest updateStoreItemRequest)
+        {
+            var dbProduct = _productContext.Products.Where(p => p.Id == updateStoreItemRequest.ProductId).FirstOrDefault();
+
+            if (dbProduct is null)
+            {
+                throw new RequestedResourceHasConflictException();
+            }
+
+            var dbAllowedSectionCatagegories = _categoryContext.Categories.Where(c => c.StoreHiveSectionId == updateStoreItemRequest.HiveSectionId && c.ProductCategoryId == dbProduct.Category.Id).FirstOrDefault();
+
+            if (dbAllowedSectionCatagegories is null)
+            {
+                throw new RequestedResourceHasConflictException();
+            }
+
+            var dbStoreItems = await _context.Items.Where(i => i.Id == storeItemId).ToArrayAsync();
+
+            if (dbStoreItems.Length is 0)
+            {
+                throw new RequestedResourceNotFoundException();
+            }
+
+            var dbStoreItem = dbStoreItems[0];
+
+            Mapper.Map(updateStoreItemRequest, dbStoreItem);
+
+            await _context.SaveChangesAsync();
+
+            return Mapper.Map<StoreItem>(dbStoreItem);
         }
     }
 }

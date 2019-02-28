@@ -298,84 +298,96 @@ namespace KatlaSport.DataAccess.Migrations
                     Id = 1,
                     Quantity = 10,
                     HiveSectionId = 1,
-                    ProductId = 1
+                    ProductId = 1,
+                    IsConfirmed = true
                 },
                 new StoreItem
                 {
                     Id = 2,
                     Quantity = 1,
                     HiveSectionId = 3,
-                    ProductId = 1
+                    ProductId = 1,
+                    IsConfirmed = true
                 },
                 new StoreItem
                 {
                     Id = 3,
                     Quantity = 0,
                     HiveSectionId = 5,
-                    ProductId = 1
+                    ProductId = 1,
+                    IsConfirmed = true
                 },
                 new StoreItem // #2
                 {
                     Id = 4,
                     Quantity = 5,
                     HiveSectionId = 1,
-                    ProductId = 2
+                    ProductId = 2,
+                    IsConfirmed = true
                 },
                 new StoreItem
                 {
                     Id = 5,
                     Quantity = 100,
                     HiveSectionId = 3,
-                    ProductId = 2
+                    ProductId = 2,
+                    IsConfirmed = true
                 },
                 new StoreItem
                 {
                     Id = 6,
                     Quantity = 10,
                     HiveSectionId = 5,
-                    ProductId = 2
+                    ProductId = 2,
+                    IsConfirmed = true
                 },
                 new StoreItem // #3
                 {
                     Id = 7,
                     Quantity = 10,
                     HiveSectionId = 1,
-                    ProductId = 3
+                    ProductId = 3,
+                    IsConfirmed = true
                 },
                 new StoreItem
                 {
                     Id = 8,
                     Quantity = 10,
                     HiveSectionId = 3,
-                    ProductId = 3
+                    ProductId = 3,
+                    IsConfirmed = true
                 },
                 new StoreItem
                 {
                     Id = 9,
                     Quantity = 10,
                     HiveSectionId = 5,
-                    ProductId = 3
+                    ProductId = 3,
+                    IsConfirmed = true
                 },
                 new StoreItem // #4
                 {
                     Id = 13,
                     Quantity = 4,
                     HiveSectionId = 2,
-                    ProductId = 4
+                    ProductId = 4,
+                    IsConfirmed = true
                 },
                 new StoreItem
                 {
                     Id = 14,
                     Quantity = 0,
                     HiveSectionId = 4,
-                    ProductId = 4
+                    ProductId = 4,
+                    IsConfirmed = true
                 },
                 new StoreItem
                 {
                     Id = 15,
                     Quantity = 0,
                     HiveSectionId = 6,
-                    ProductId = 4
+                    ProductId = 4,
+                    IsConfirmed = true
                 });
 
             context.Customers.AddOrUpdate(
