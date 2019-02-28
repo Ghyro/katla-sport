@@ -6,7 +6,7 @@ import { StoreItemService } from '../services/store-item.service';
 import { StoreItem } from '../models/store-item';
 import { ProductCategory } from 'app/product-management/models/product-category';
 import { ProductCategoryProductListItem } from 'app/product-management/models/product-category-product-list-item';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-store-item-form',
@@ -19,7 +19,7 @@ export class StoreItemFormComponent implements OnInit {
         quantity: new FormControl('1', Validators.min(1))
     });
 
-    storeItem = new StoreItem(0, 0, 0);
+    storeItem = new StoreItem(0, 0, 0, 0, false);
 
     hiveId: number;
     hiveSectionId: number;

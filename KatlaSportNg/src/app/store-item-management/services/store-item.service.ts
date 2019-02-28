@@ -20,5 +20,10 @@ export class StoreItemService {
 
     addHiveSectionStoreItem(storeItem: StoreItem): Observable<StoreItem> {
         return this.http.post<StoreItem>(`${this.url}`, storeItem);
-      }
+    }
+
+    confirmStoreItem(storeItem: StoreItem): Observable<Object> {
+        storeItem.isConfirmed = true;
+        return this.http.put<StoreItem>(`${this.url}${storeItem.id}`, storeItem);
+    }
 }

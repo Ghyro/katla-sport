@@ -6,6 +6,6 @@ export class StoreItemListItem {
         public productCode: string,
         public productCategoryCode: string,
         public quantity: number,
-        public hiveSectionId: number
+        public isConfirmed: boolean
     ) { }
 }

@@ -89,21 +89,21 @@ namespace KatlaSport.Services.StoreManagement
         {
             var dbProduct = _productContext.Products.Where(p => p.Id == updateStoreItemRequest.ProductId).FirstOrDefault();
 
-            if (dbProduct is null)
+            if (dbProduct == null)
             {
                 throw new RequestedResourceHasConflictException();
             }
 
             var dbAllowedSectionCatagegories = _categoryContext.Categories.Where(c => c.StoreHiveSectionId == updateStoreItemRequest.HiveSectionId && c.ProductCategoryId == dbProduct.Category.Id).FirstOrDefault();
 
-            if (dbAllowedSectionCatagegories is null)
+            if (dbAllowedSectionCatagegories == null)
             {
                 throw new RequestedResourceHasConflictException();
             }
 
             var dbStoreItems = await _context.Items.Where(i => i.Id == storeItemId).ToArrayAsync();
 
-            if (dbStoreItems.Length is 0)
+            if (dbStoreItems.Length == 0)
             {
                 throw new RequestedResourceNotFoundException();
             }
